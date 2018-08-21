@@ -45,7 +45,7 @@ public class OrderMgmtVerticle extends AbstractVerticle {
         router.put("/api/orders/:id").handler(this::updateOne);
         router.delete("/api/orders/:id").handler(this::deleteOne);
 
-        vertx.createHttpServer().requestHandler(router::accept).listen(config().getInteger("http.port", 8180), result -> {
+        vertx.createHttpServer().requestHandler(router::accept).listen(config().getInteger("http.port", 8080), result -> {
             if (result.succeeded()) {
                 fut.complete();
             } else {
